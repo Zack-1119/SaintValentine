@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 Joyeuse Saint-Valentin 💖</title>
+    <style>
+        /* 🌸 Style général */
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 📩 Enveloppe animée */
+        .envelope {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 80px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .envelope:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .envelope::before {
+            content: "📩";
+            font-size: 2em;
+        }
+
+        .envelope p {
+            position: absolute;
+            bottom: -30px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        /* 💌 Lettre */
+        .letter, .photos {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: black;
+            text-align: center;
+            font-size: 1.2em;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .letter button, .photos button {
+            background-color: #ff758c;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .letter button:hover, .photos button:hover {
+            background-color: #ff4f7b;
+        }
+
+        .photos img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* ✨ Animation d’apparition */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 📩 Enveloppe animée -->
+    <div class="envelope" id="envelope">
+        <p>Clique ici</p>
+    </div>
+
+    <!-- 💌 Première lettre -->
+    <div class="letter" id="letter">
+        <h2>💖 Pour toi 💖</h2>
+        <p>Joyeuse Saint-Valentin ! Que ton cœur soit rempli d’amour et de bonheur aujourd’hui et toujours. 💕</p>
+        <button onclick="showNextLetter()">Lire la suite</button>
+    </div>
+
+    <!-- 💌 Deuxième lettre (long texte) -->
+    <div class="letter" id="letter2">
+        <h2>💕 Mon message pour toi 💕</h2>
+        <p>
+            Salut mon amour,  
+            J’espère que tu vas bien. En ce jour spécial, je voulais prendre un moment pour t’écrire ces quelques mots et te dire à quel point tu comptes pour moi.  
+            Depuis le premier jour où je t’ai rencontré(e), ma vie a changé. Chaque moment passé avec toi est un instant de bonheur, une douce mélodie qui résonne dans mon cœur.  
+            Ton sourire illumine mes journées et ta présence me remplit de joie. J’aime la façon dont tu ris, dont tu parles, dont tu es simplement toi. Avec toi, je me sens complet(e), aimé(e) et heureux(se).  
+            Tu es bien plus qu’une simple personne dans ma vie, tu es mon étoile, mon bonheur, mon refuge.  
+            Peu importe les hauts et les bas, je veux être là pour toi, te soutenir, t’aimer et construire ensemble des souvenirs inoubliables.  
+            Merci d’être toi, merci d’être à mes côtés. Je t’aime plus que les mots ne peuvent l’exprimer.  
+        </p>
+        <button onclick="showPhotos()">Voir nos photos</button>
+    </div>
+
+    <!-- 📸 Photos -->
+    <div class="photos" id="photos">
+        <h2>📸 Nos souvenirs 📸</h2>
+        <img src="photo1.jpg" alt="Photo 1">
+        <img src="photo2.jpg" alt="Photo 2">
+        <button onclick="closePhotos()">Revenir au début</button>
+    </div>
+
+    <script>
+        // 📩 Ouvrir la lettre au clic sur l’enveloppe
+        document.getElementById("envelope").addEventListener("click", function() {
+            document.getElementById("envelope").style.display = "none";
+            document.getElementById("letter").style.display = "block";
+        });
+
+        // 📜 Afficher la deuxième lettre
+        function showNextLetter() {
+            document.getElementById("letter").style.display = "none";
+            document.getElementById("letter2").style.display = "block";
+        }
+
+        // 📸 Afficher les photos
+        function showPhotos() {
+            document.getElementById("letter2").style.display = "none";
+            document.getElementById("photos").style.display = "block";
+        }
+
+        // 🔄 Revenir au début après les photos
+        function closePhotos() {
+            document.getElementById("photos").style.display = "none";
+            document.getElementById("envelope").style.display = "flex";
+        }
+    </script>
+
+</body>
+</html>
 
