@@ -56,8 +56,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 500px;
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -66,6 +66,8 @@
             text-align: center;
             font-size: 1.2em;
             animation: fadeIn 1s ease-in-out;
+            max-height: 80vh;  /* 🔥 Empêche le texte d'être coupé */
+            overflow-y: auto;  /* 🔥 Ajoute une barre de défilement si nécessaire */
         }
 
         .letter button, .photos button {
@@ -82,8 +84,11 @@
             background-color: #ff4f7b;
         }
 
+        /* 📸 Photos */
         .photos img {
             width: 100%;
+            max-height: 400px; /* 🔥 Évite que l'image soit trop grande */
+            object-fit: contain; /* 🔥 Garde l'image entière visible */
             border-radius: 10px;
             margin-top: 10px;
         }
@@ -130,12 +135,9 @@
 
 <p> Bref, je crois que j'ai tout dit pour aujourd'hui. Sache juste que tu es mon monde et que je t’aime plus que les mots ne peuvent l’exprimer. </p>
 
+<p> Apprécie moi cette lettre pour ce 14 fevrier 2025,</p>
 Avec tout mon amour, </p>
 <p> Zack </p>
-        </p>
-        <button onclick="showPhotos()">Voir nos photos</button>
-    </div>
-
     <!-- 📸 Photos -->
     <div class="photos" id="photos">
         <h2>📸 Nos souvenirs 📸</h2>
